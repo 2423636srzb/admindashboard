@@ -29,7 +29,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$activeSessionsCount}}</h3>
 
                 <p>Active User</p>
               </div>
@@ -59,7 +59,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{$lastWeekRegistrations}}</h3>
 
                 <p>User Registrations</p>
               </div>

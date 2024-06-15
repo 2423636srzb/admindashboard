@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\TagController;
 
 Route::get('/', function () {
@@ -42,6 +43,7 @@ Route::resource('api_keys', ApiKeyController::class);
 Route::resource('contents', ContentController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('tags', TagController::class);
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -51,4 +53,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::resource('files',FileController::class);
 require __DIR__.'/auth.php';

@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-gray-dark elevation-4">
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -93,7 +93,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="fa fa-cog" aria-hidden="true"></i>
               <p>
                 General Setting
                 <i class="fas fa-angle-left right"></i>
@@ -114,7 +114,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="fa fa-key" aria-hidden="true"></i>
               <p>
                API Keys
                 <i class="fas fa-angle-left right"></i>
@@ -136,7 +136,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="fa fa-flag" aria-hidden="true"></i>
               <p>
                 Reports and Analytics
                 <i class="fas fa-angle-left right"></i>
@@ -163,7 +163,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="fa fa-folder" aria-hidden="true"></i>
               <p>
                 File Management
                 <i class="fas fa-angle-left right"></i>
@@ -171,18 +171,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="{{route('files.index')}}" class="nav-link">
                   <p>Manage Files</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <p>Content performance</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <p>System logs</p>
                 </a>
               </li>
             </ul>
@@ -191,7 +181,8 @@
             <a href="pages/forms/advanced.html" class="nav-link">
               <form method="POST" action="{{ route('logout') }}" class="d-inline">
                 @csrf
-                <button type="submit" class="nav-link">LogOut</button>
+                
+                <button type="submit" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</button>
             </form>
             </a>
           </li>
