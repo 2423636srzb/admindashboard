@@ -67,16 +67,26 @@
 
           <li class="nav-item">
             <a href="" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-file" ></i>
               <p>
                 Content
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{route('admin.contents.index')}}" class="nav-link">
                   <p>Content</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{route('admin.posts.index')}}" class="nav-link">
+                  <p>Post</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.products.index')}}" class="nav-link">
+                  <p>Product</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -93,7 +103,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-cog" aria-hidden="true"></i>
+              <i class="nav-icon fas fa-cog"></i>
               <p>
                 General Setting
                 <i class="fas fa-angle-left right"></i>
@@ -114,7 +124,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-key" aria-hidden="true"></i>
+              <i class="nav-icon fas fa-key"></i>
               <p>
                API Keys
                 <i class="fas fa-angle-left right"></i>
@@ -136,7 +146,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-flag" aria-hidden="true"></i>
+              <i class="nav-icon fas fa-flag"></i>
               <p>
                 Reports and Analytics
                 <i class="fas fa-angle-left right"></i>
@@ -163,7 +173,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-folder" aria-hidden="true"></i>
+              <i class="nav-icon fas fa-folder" ></i>
               <p>
                 File Management
                 <i class="fas fa-angle-left right"></i>
@@ -182,7 +192,7 @@
               <form method="POST" action="{{ route('logout') }}" class="d-inline">
                 @csrf
                 
-                <button type="submit" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</button>
+                <button type="submit" class="nav-link"><i class="nav-icon fas fa-sign-out"></i>LogOut</button>
             </form>
             </a>
           </li>
