@@ -20,6 +20,7 @@ class Posts extends Model
         'summary',
         'author_id',
         'category_id',
+        'tag_id',
         'status',
         'published_at',
         'image',
@@ -39,7 +40,10 @@ public function category()
 {
     return $this->belongsTo(Category::class, 'id');
 }
-
+public function tags()
+{
+    return $this->belongsToMany(Tag::class, 'post_tag', 'post_id', 'tag_id');
+}
 public function getActivitylogOptions(): LogOptions
 {
     return LogOptions::defaults()

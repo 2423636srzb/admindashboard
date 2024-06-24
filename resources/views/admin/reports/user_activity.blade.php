@@ -14,8 +14,7 @@
             <th>User</th>
             <th>Name</th>
             <th>Modify</th>
-            {{-- <th>Subject</th> --}}
-            <th>Old One</th>
+            {{-- <th>Old One</th> --}}
             <th>New One</th>
             <th>Created At</th>
         </tr>
@@ -26,19 +25,16 @@
             $properties = json_decode($activity->properties, true);
             $attributes = $properties['attributes'] ?? [];
             $oldAttributes = $properties['old'] ?? [];
-        @endphp
+            @endphp
             <tr>
                 <td>{{ $activity->causer ? $activity->causer->name : 'Unknown'}}</td>
                 <td>{{ $activity->log_name }}</td>
                 <td>{{ $activity->event }}</td>
-                {{-- <td>{{ $activity->subject ? $activity->subject->name : 'Unknown' }}</td> --}}
-              
-            
-                <td>
+                {{-- <td>
                     @foreach($oldAttributes as $key => $value)
                         <strong>{{ $key }}:</strong> {{ $value }}<br>
                     @endforeach
-                </td>
+                </td> --}}
                 <td>
                     @foreach($attributes as $key => $value)
                         <strong>{{ $key }}:</strong> {{ $value }}<br>

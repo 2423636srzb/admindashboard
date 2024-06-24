@@ -2,7 +2,7 @@
 
 @section('main')
 <div class="col-12">
-    <a href="{{ route('admin.products.create') }}" class="btn btn-primary  mt-3 mb-3">Create Product</a>
+    <a href="{{ route('admin.products.create') }}" class="btn btn-primary mt-3 mb-3">Create Product</a>
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Product</h3>
@@ -20,8 +20,7 @@
         </div>
       </div>
       <!-- /.card-header -->
-      <div class="card-body table-responsive p-0" style="height: 300px;">
-
+      <div class="card-body table-responsive p-0" style="height: 300px; overflow-y: auto;">
         <table class="table">
             <thead>
                 <tr>
@@ -51,10 +50,9 @@
                 @endforeach
             </tbody>
         </table>
-        </table>
+      </div>
+      <!-- /.card-body -->
     </div>
-    <!-- /.card-body -->
+    <!-- /.card -->
   </div>
-  <!-- /.card -->
-</div>
 @endsection

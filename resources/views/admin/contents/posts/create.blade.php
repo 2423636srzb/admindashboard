@@ -31,7 +31,7 @@
 
     <div class="row">
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <label for="author_id">Author</label>
             <select name="author_id" class="form-control" id="author_id" required>
                 @foreach ($authors as $author)
@@ -40,11 +40,19 @@
             </select>
         </div>
 
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <label for="category_id">Category</label>
             <select name="category_id" class="form-control" id="category_id" required>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="category_id">Tags</label>
+            <select name="tag_id" class="form-control" id="tag_id" required>
+                @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                 @endforeach
             </select>
         </div>
