@@ -5,7 +5,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-9">
-     <button type="button" class="btn btn-primary m-3">New User</button>
+     <a href="{{ route('admin.register') }}"><button type="button" class="btn btn-primary m-3">New User</button></a>
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">User List</h3>

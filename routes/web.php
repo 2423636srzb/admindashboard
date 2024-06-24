@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiKeyController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostsController;
@@ -23,7 +25,17 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:Admin'])->name('admin.')->prefix('admin')->group(function(){
+
+Route::get('/admin/notifications', [AdminController::class, 'showNotifications'])->name('notifications');
+Route::post('/admin/notifications/mark-as-read/{id}', [AdminController::class, 'markAsRead'])->name('notifications.read');
+Route::post('/admin/notifications/mark-as-unread/{id}', [AdminController::class, 'markAsUnread'])->name('notifications.unread');
+
+
+Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('register', [RegisteredUserController::class, 'store'])->name('register.store');
+
 Route::get('/dashboard',[AdminController::class,'index'])->name('index');
+
 Route::resource('/roles',RoleController::class);
 Route::post('roles/{role}/permission',[RoleController::class,'givePermission'])->name('roles.permission');
 Route::delete('roles/{role}/permission/{permission}',[RoleController::class,'revokePermission'])->name('roles.permission.revoke');
@@ -46,7 +58,8 @@ Route::resource('categories', CategoryController::class);
 Route::resource('tags', TagController::class);
 Route::resource('posts', PostsController::class);
 
-
+Route::get('ActivityLog',[ActivityLogController::class,'index'])->name('activity.report');
+Route::get('/system-logs',[ActivityLogController::class,'getSystemLogs'])->name('system.logs');
 });
 
 Route::middleware('auth')->group(function () {
@@ -59,3 +72,5 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('files',FileController::class);
 require __DIR__.'/auth.php';
+
+

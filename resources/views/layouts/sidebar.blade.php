@@ -148,13 +148,13 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-flag"></i>
               <p>
-                Reports and Analytics
+                Reports
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="{{route('admin.activity.report')}}" class="nav-link">
                   <p>User activity logs</p>
                 </a>
               </li>
@@ -164,7 +164,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
+                <a href="{{route('admin.system.logs')}}" class="nav-link">
                   <p>System logs</p>
                 </a>
               </li>
@@ -183,6 +183,22 @@
               <li class="nav-item">
                 <a href="{{route('files.index')}}" class="nav-link">
                   <p>Manage Files</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-folder" ></i>
+              <p>
+                Notification
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.notifications')}}" class="nav-link">
+                  <p>New User</p>
                 </a>
               </li>
             </ul>

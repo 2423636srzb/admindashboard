@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\User;
+use App\Notifications\NewUserNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +23,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('admin.user.create');
     }
 
     /**
@@ -42,10 +45,17 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        // event(new Registered($user));
+        $adminUsers = User::role('Admin')->get(); // Get the first admin user
+        if ($adminUsers) {
+            foreach ($adminUsers as $admin) {
+                $admin->notify(new NewUserNotification($user));
+            }
+        }
+        // Auth::login($user);
 
-        Auth::login($user);
 
-        return redirect(route('admin.index', absolute: false));
+        
+        return redirect()->back()->with('message','User Created Successfully');
     }
 }
