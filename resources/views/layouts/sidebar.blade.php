@@ -120,6 +120,11 @@
                   <p>SMTP Setting</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('admin.email.create')}}" class="nav-link">
+                  <p>Test Mail</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -199,6 +204,29 @@
               <li class="nav-item">
                 <a href="{{route('admin.notifications')}}" class="nav-link">
                   <p>New User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.criticalError')}}" class="nav-link">
+                  <p>Critical System Error</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-folder" ></i>
+              <p>
+                Backups
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin.backups.index') }}" class="nav-link">
+                  <p>Backups
+                  </p>
                 </a>
               </li>
             </ul>

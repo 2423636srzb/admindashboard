@@ -31,7 +31,7 @@ class ApiKeyController extends Controller
             'name' => $request->name,
             'key' => Str::random(32),
         ]);
-
+        
         return redirect()->route('admin.api_keys.index')->with('message', 'API Key created successfully.');
     }
 

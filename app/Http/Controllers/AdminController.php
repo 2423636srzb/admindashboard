@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Notifications\CriticalErrorNotification;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -49,5 +50,10 @@ class AdminController extends Controller
        }
 
        return redirect()->back();
+   }
+
+   public function criticalError(){
+    $notifications = Auth::user()->notifications()->where('type', CriticalErrorNotification::class)->get();
+    return view('admin.notifications.system_error', compact('notifications'));
    }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\PostsController;
@@ -20,16 +21,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test-error', function () {
+    // Simulate an error
+    throw new Exception('This is a test critical error.');
+});
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:Admin'])->name('admin.')->prefix('admin')->group(function(){
 
+    Route::get('backups', [BackupController::class,'index'])->name('backups.index');
+    Route::get('backups/create', [BackupController::class,'create'])->name('backups.create');
+    Route::get('backups/download/{filename}', [BackupController::class,'download'])->name('backups.download');
+    Route::get('backups/delete/{filename}', [BackupController::class,'delete'])->name('backups.delete');
+
+
 Route::get('/admin/notifications', [AdminController::class, 'showNotifications'])->name('notifications');
 Route::post('/admin/notifications/mark-as-read/{id}', [AdminController::class, 'markAsRead'])->name('notifications.read');
 Route::post('/admin/notifications/mark-as-unread/{id}', [AdminController::class, 'markAsUnread'])->name('notifications.unread');
 
+Route::get('/admin/criticalError', [AdminController::class, 'criticalError'])->name('criticalError');
 
 Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('register', [RegisteredUserController::class, 'store'])->name('register.store');
@@ -50,6 +63,9 @@ Route::post('/site/setting',[SettingController::class,'store'])->name('site.sett
 
 Route::get('/smtp/setting',[SettingController::class,'smtpSetting'])->name('smtp.setting.index');
 Route::post('/smtp/setting',[SettingController::class,'smtpUpdate'])->name('smtp.setting.update');
+
+Route::get('/email/create',[SettingController::class,'emailCreate'])->name('email.create');
+Route::post('/email/send',[SettingController::class,'emailSend'])->name('email.send');
 
 Route::resource('api_keys', ApiKeyController::class);
 

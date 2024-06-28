@@ -28,13 +28,14 @@ class AppServiceProvider extends ServiceProvider
          View::share('appSetting', $websitesetting);
 
          $mailSetting = SMTPModel::getSingle();
+        //  dd($mailSetting);
          if(!empty($mailSetting)){
             $data_mail = [
                 'driver' => $mailSetting->mail_mailer,
                 'host' => $mailSetting->mail_host,
                 'port' => $mailSetting->mail_port,
                 'encryption' => $mailSetting->mail_encryption,
-                'username' => $mailSetting->mail_username,
+                'username' => $mailSetting->mail_userName,
                 'password' => $mailSetting->mail_password,
                 'from' => [
                     'address'=> $mailSetting->mail_from_address,

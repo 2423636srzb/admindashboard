@@ -9,7 +9,9 @@
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "spatie/db-dumper": "^3.6",
         "spatie/laravel-activitylog": "^4.8",
+        "spatie/laravel-backup": "^8.8",
         "spatie/laravel-permission": "^6.7"
     },
     "require-dev": {

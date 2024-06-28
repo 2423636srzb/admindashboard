@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailJob;
 use App\Models\Setting;
 use App\Models\SMTPModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\eventMail;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
@@ -71,5 +75,16 @@ class SettingController extends Controller
         $smtp->mail_from_address = trim($request->mail_from_address);
         $smtp->save();
         return redirect()->back()->with('message','SMTP updated Successfully');
+    }
+
+    public function emailCreate(){
+        return view('admin.setting.create_mail');
+    }
+
+    public function emailSend(Request $request)
+    {
+       
+        dispatch(new SendEmailJob(['recipient'=>$request->recipient,'subject'=>$request->subject,'message'=>$request->message]));
+        return redirect()->back()->with('message','Email Send');
     }
 }
