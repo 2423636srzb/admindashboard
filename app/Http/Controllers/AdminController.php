@@ -19,9 +19,23 @@ class AdminController extends Controller
           $now = Carbon::now();
           $oneWeekAgo = $now->subWeek();
           $lastWeekRegistrations = User::where('created_at', '>=', $oneWeekAgo)->count();
+
+          $data = [
+            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            'datasets' => [
+                [
+                    'label' => 'My First dataset',
+                    'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
+                    'borderColor' => 'rgba(255, 99, 132, 1)',
+                    'borderWidth' => 1,
+                    'data' => [65, 59, 80, 81, 56, 55, 40],
+                ],
+            ],
+        ];
+
           
 
-    return view('admin.index',compact('activeSessionsCount','lastWeekRegistrations'));
+    return view('admin.index',compact('activeSessionsCount','lastWeekRegistrations','data'));
    }
 
 
