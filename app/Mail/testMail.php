@@ -3,21 +3,22 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class EventMail extends Mailable
+class testMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $details;
+
     /**
      * Create a new message instance.
      */
-    public function __construct($details)
+    public function __construct(public array $data)
     {
-        $this->details = $details;
+        //
     }
 
     /**
@@ -26,7 +27,7 @@ class EventMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "AdminDashboard Events",
+            subject: 'Admin Dashboard',
         );
     }
 
@@ -35,18 +36,11 @@ class EventMail extends Mailable
      */
     public function content(): Content
     {
-        // dd($this->details['userName'],$this->details['from'],$this->details['subject'],$this->details['message']);
         return new Content(
-            view: 'admin.notifications.mail_template',
-            with:[
-                'name' =>$this->details['userName'],
-                'from' =>$this->details['from'],
-                'subject' =>$this->details['subject'],
-                'messages' =>$this->details['messages']
-             ]
+            view: 'admin.setting.testMail',
         );
-
     }
+
     /**
      * Get the attachments for the message.
      *

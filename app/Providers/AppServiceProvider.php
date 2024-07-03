@@ -7,7 +7,7 @@ use App\Models\SMTPModel;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->environment('local')) {
+            DB::enableQueryLog();
+        }
         $websitesetting = Setting::first();
          View::share('appSetting', $websitesetting);
 

@@ -2,19 +2,13 @@
 
 @section('main')
 <div class="container">
-    <h2>Critical System Errors</h2>
-    @if($notifications->isEmpty())
-        <p>No critical system errors.</p>
-    @else
-        <ul>
-            @foreach($notifications as $notification)
-                <li>
-                    {{ $notification->data['errorDetails'] }}
-                    <br>
-                    <small>{{ $notification->created_at->diffForHumans() }}</small>
-                </li>
-            @endforeach
-        </ul>
-    @endif
+    <div class="error-title">A Critical Error Occurred</div>
+    <div class="error-details">
+        <p>We are experiencing technical difficulties. Please try again later.</p>
+        @if(config('app.debug'))
+            <p>{{ $exception->getMessage() }}</p>
+            <pre>{{ $exception->getTraceAsString() }}</pre>
+        @endif
+    </div>
 </div>
 @endsection

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Notifications\CriticalErrorNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class AdminController extends Controller
 {
@@ -33,9 +34,15 @@ class AdminController extends Controller
             ],
         ];
 
-          
+        $metrics = Cache::get('last_request_metrics', [
+            'duration' => 0,
+            'queries' => [],
+            'memory_usage' => 0,
+            'timestamp' => null,
+        ]);
 
-    return view('admin.index',compact('activeSessionsCount','lastWeekRegistrations','data'));
+
+    return view('admin.index',compact('activeSessionsCount','lastWeekRegistrations','data','metrics'));
    }
 
 

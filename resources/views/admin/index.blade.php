@@ -88,10 +88,22 @@
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
-          <div style="width: 50%; margin: auto;">
+          <div class="col-md-6" style="width: 50%; margin: auto;">
             <canvas id="myChart"></canvas>
         </div>
-      
+      <div class="col-md-6">
+        <h1>Performance Metrics</h1>
+        <p><strong>Duration:</strong> {{ $metrics['duration'] }} seconds</p>
+        <p><strong>Memory Usage:</strong> {{ number_format($metrics['memory_usage'] / 1024 / 1024, 2) }} MB</p>
+        <p><strong>Timestamp:</strong> {{ $metrics['timestamp'] }}</p>
+        
+        <h2>Queries</h2>
+        <ul>
+            @foreach ($metrics['queries'] as $query)
+                <li>{{ $query['query'] }} [{{ implode(', ', $query['bindings']) }}] ({{ $query['time'] }} ms)</li>
+            @endforeach
+        </ul>
+      </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var ctx = document.getElementById('myChart').getContext('2d');

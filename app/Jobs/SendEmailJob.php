@@ -2,7 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Mail\eventMail;
+
+use App\Mail\testMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -29,6 +30,6 @@ class SendEmailJob implements ShouldQueue
     public function handle(): void
     {
          $user = Auth::user();
-        Mail::to($this->incoming['recipient'])->send(new eventMail(['name'=>$user->name,'subject'=>$this->incoming['subject'],'message'=>$this->incoming['message']]));
+        Mail::to($this->incoming['recipient'])->send(new testMail(['name'=>$user->name,'subject'=>$this->incoming['subject'],'message'=>$this->incoming['message']]));
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\CriticalErrorException;
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PermissionController;
@@ -10,9 +11,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\BackupController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TagController;
@@ -21,9 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test-error', function () {
-    // Simulate an error
-    throw new Exception('This is a test critical error.');
+Route::get('/test-critical-error', function () {
+    throw new CriticalErrorException('Test critical error');
 });
 
 // Route::get('/dashboard', function () {
@@ -31,12 +31,9 @@ Route::get('/test-error', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:Admin'])->name('admin.')->prefix('admin')->group(function(){
-
-    Route::get('backups', [BackupController::class,'index'])->name('backups.index');
-    Route::get('backups/create', [BackupController::class,'create'])->name('backups.create');
-    Route::get('backups/download/{filename}', [BackupController::class,'download'])->name('backups.download');
-    Route::get('backups/delete/{filename}', [BackupController::class,'delete'])->name('backups.delete');
-
+    Route::get('event/notification',[NotificationController::class,'index'])->name('event.index');
+    Route::post('event/notification/send',[NotificationController::class,'send'])->name('event.send');
+  
 
 Route::get('/admin/notifications', [AdminController::class, 'showNotifications'])->name('notifications');
 Route::post('/admin/notifications/mark-as-read/{id}', [AdminController::class, 'markAsRead'])->name('notifications.read');

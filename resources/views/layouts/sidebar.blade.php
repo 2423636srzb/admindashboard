@@ -169,7 +169,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('admin.system.logs')}}" class="nav-link">
+                <a href="{{url('log-viewer')}}" class="nav-link">
                   <p>System logs</p>
                 </a>
               </li>
@@ -211,6 +211,11 @@
                   <p>Critical System Error</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('admin.event.index')}}" class="nav-link">
+                  <p>Create Event Mail</p>
+                </a>
+              </li>
             </ul>
           </li>
 
@@ -224,7 +229,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.backups.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   <p>Backups
                   </p>
                 </a>

@@ -5,41 +5,41 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Notification;
 use App\Models\User;
-use App\Notifications\CriticalErrorNotification;
+use App\Exceptions\CriticalErrorException;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
-    // ...
-
-    /**
+     /**
      * Report or log an exception.
      *
      * @param  \Throwable  $exception
      * @return void
-     *
-     * @throws \Exception
      */
     public function report(Throwable $exception)
     {
+        if ($exception instanceof CriticalErrorException) {
+            // Log critical errors
+            Log::critical($exception->getMessage(), ['exception' => $exception]);
+        }
+
         parent::report($exception);
-        if ($this->shouldReport($exception)) {
-            $this->notifyAdmins($exception);
-        }
     }
 
-    protected function notifyAdmins(Throwable $exception)
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Illuminate\Http\Response
+     */
+    public function render($request, Throwable $exception)
     {
-        try {
-            $adminUsers = User::role('Admin')->get();
-           
-            Notification::send($adminUsers, new CriticalErrorNotification($exception->getMessage()));
-        } catch (Throwable $ex) {
-            // If an error occurs while sending the notification, log it
-            Log::error('Failed to send critical error notification: ' . $ex->getMessage());
+        if ($exception instanceof CriticalErrorException) {
+            return response()->view('errors.critical', ['exception' => $exception], 500);
         }
-    }
 
-    // ...
+        return parent::render($request, $exception);
+    }
 }
