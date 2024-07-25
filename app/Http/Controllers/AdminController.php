@@ -17,10 +17,11 @@ class AdminController extends Controller
           ->count();
 
 
-          $now = Carbon::now();
-          $oneWeekAgo = $now->subWeek();
-          $lastWeekRegistrations = User::where('created_at', '>=', $oneWeekAgo)->count();
-
+        //   $now = Carbon::now();
+        //   $oneWeekAgo = $now->subWeek();
+        //   $lastWeekRegistrations = User::where('created_at', '>=', $oneWeekAgo)->count();
+           
+        $userRegistration = User::all()->count();
           $data = [
             'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             'datasets' => [
@@ -29,7 +30,7 @@ class AdminController extends Controller
                     'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
                     'borderColor' => 'rgba(255, 99, 132, 1)',
                     'borderWidth' => 1,
-                    'data' => [65, 59, 80, 81, 56, 55, 40],
+                    'data' => [65, 59, 60, 81, 56, 55, 40],
                 ],
             ],
         ];
@@ -42,7 +43,7 @@ class AdminController extends Controller
         ]);
 
 
-    return view('admin.index',compact('activeSessionsCount','lastWeekRegistrations','data','metrics'));
+    return view('admin.index',compact('activeSessionsCount','userRegistration','data','metrics'));
    }
 
 
@@ -57,21 +58,22 @@ class AdminController extends Controller
 
        if ($notification) {
            $notification->markAsRead();
+           $notification->delete(); 
        }
 
        return redirect()->back();
    }
 
-   public function markAsUnread($id)
-   {
-       $notification = auth()->user()->notifications()->find($id);
+//    public function markAsUnread($id)
+//    {
+//        $notification = auth()->user()->notifications()->find($id);
 
-       if ($notification) {
-           $notification->markAsUnread();
-       }
+//        if ($notification) {
+//            $notification->markAsUnread();
+//        }
 
-       return redirect()->back();
-   }
+//        return redirect()->back();
+//    }
 
    public function criticalError(){
     $notifications = Auth::user()->notifications()->where('type', CriticalErrorNotification::class)->get();

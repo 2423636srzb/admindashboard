@@ -58,7 +58,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{$lastWeekRegistrations}}</h3>
+                <h3>{{$userRegistration}}</h3>
 
                 <p>User Registrations</p>
               </div>

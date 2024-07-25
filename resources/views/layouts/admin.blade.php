@@ -58,12 +58,7 @@
         });
     });
 </script>
-<style>
-    body { font-family: Arial, sans-serif; background-color: #f8d7da; color: #721c24; padding: 20px; }
-    .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #f5c6cb; background-color: #ffffff; border-radius: 5px; }
-    .error-title { font-size: 24px; margin-bottom: 10px; }
-    .error-details { margin-top: 10px; }
-</style>
+
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">

@@ -2,7 +2,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="">
         </div>
@@ -12,7 +12,8 @@
             <div class="text-muted">{{ Auth::user()->email  ?? ''}}</div>
         </div>
         </div>
-      </div>
+      </div> --}}
+    
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
@@ -178,7 +179,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-folder" ></i>
+              <i class="nav-icon fas fa-file" ></i>
               <p>
                 File Management
                 <i class="fas fa-angle-left right"></i>
@@ -194,7 +195,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-folder" ></i>
+              <i class="nav-icon fas fa-bell" ></i>
               <p>
                 Notification
                 <i class="fas fa-angle-left right"></i>
@@ -221,7 +222,7 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-folder" ></i>
+              <i class="nav-icon fas fa-store" ></i>
               <p>
                 Backups
                 <i class="fas fa-angle-left right"></i>
