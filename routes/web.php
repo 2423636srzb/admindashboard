@@ -13,6 +13,7 @@ use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\LocalController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductController;
@@ -30,7 +31,10 @@ Route::get('/test-critical-error', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::middleware(['auth', 'role:Admin'])->name('admin.')->prefix('admin')->group(function(){
+Route::get('locale/{lang}',[LocalController::class,'setLocale'])->name('setLocale');
+
     Route::get('event/notification',[NotificationController::class,'index'])->name('event.index');
     Route::post('event/notification/send',[NotificationController::class,'send'])->name('event.send');
   

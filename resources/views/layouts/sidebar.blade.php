@@ -35,14 +35,14 @@
                <li class="nav-item">
                 <a href="{{route('admin.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard</p>
+                  <p>@lang('messages.Dashboard')</p>
                 </a>
               </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                User Management
+                @lang('messages.user-management')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -60,7 +60,7 @@
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.permissions.index')}}" class="nav-link">
-                  <p>Permission</p>
+                  <p>@lang('messages.permission')</p>
                 </a>
               </li>
             </ul>

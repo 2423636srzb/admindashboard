@@ -17,6 +17,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
            'PerformanceMetrics'=> \App\Http\Middleware\PerformanceMetrics::class,
         ]);
+
+        $middleware->web(append:[
+
+            App\Http\Middleware\LocalizationMiddleware::class,
+            
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

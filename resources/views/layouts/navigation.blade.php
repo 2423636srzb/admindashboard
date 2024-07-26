@@ -96,32 +96,21 @@
         </div>
       </li> --}}
       <!-- Notifications Dropdown Menu -->
-      {{-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+      <li class="nav-item dropdown">
+        <div class="dropdown">
+          <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Select Lenguage
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="locale/ar">Arabic</a></li>
+            <li><a class="dropdown-item" href="locale/en">English</a></li>
+            <li><a class="dropdown-item" href="locale/ur">Urdu</a></li>
+            <li><a class="dropdown-item" href="locale/fr">French</a></li>
+            <li><a class="dropdown-item" href="locale/ch">Chinese</a></li>
+          </ul>
         </div>
-      </li> --}}
+      </li>
 
       <li class="nav-item">
         <div class="hidden sm:flex sm:items-center sm:ms-6">

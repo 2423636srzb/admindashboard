@@ -30,7 +30,7 @@
               <div class="inner">
                 <h3>{{$activeSessionsCount}}</h3>
 
-                <p>Active User</p>
+                <p>@lang('messages.active-user')</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
@@ -60,7 +60,7 @@
               <div class="inner">
                 <h3>{{$userRegistration}}</h3>
 
-                <p>User Registrations</p>
+                <p>@lang('messages.Registered-user')</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
