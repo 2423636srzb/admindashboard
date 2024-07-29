@@ -49,13 +49,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.user.index')}}" class="nav-link">
-                  <p>User</p>
+                  <p>@lang('messages.user')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.roles.index')}}" class="nav-link">
                  
-                  <p>Role</p>
+                  <p>@lang('messages.role')</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -70,7 +70,7 @@
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-file" ></i>
               <p>
-                Content
+                @lang('messages.content')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -82,22 +82,22 @@
               </li> --}}
               <li class="nav-item">
                 <a href="{{route('admin.posts.index')}}" class="nav-link">
-                  <p>Post</p>
+                  <p>@lang('messages.post')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.products.index')}}" class="nav-link">
-                  <p>Product</p>
+                  <p>@lang('messages.product')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.categories.index')}}" class="nav-link">  
-                  <p>Categories</p>
+                  <p>@lang('messages.categories')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.tags.index')}}" class="nav-link">  
-                  <p>Tags</p>
+                  <p>@lang('messages.tags')</p>
                 </a>
               </li>
             </ul>
@@ -106,24 +106,24 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                General Setting
+                @lang('messages.general-setting')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.site.setting.index')}}" class="nav-link">
-                  <p>Site Setting</p>
+                  <p>@lang('messages.site-setting')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.smtp.setting.index')}}" class="nav-link">
-                  <p>SMTP Setting</p>
+                  <p>@lang('messages.smtp-setting')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.email.create')}}" class="nav-link">
-                  <p>Test Mail</p>
+                  <p>@lang('messages.test-email')</p>
                 </a>
               </li>
             </ul>
@@ -132,19 +132,19 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-key"></i>
               <p>
-               API Keys
+                @lang('messages.api-keys')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.api_keys.create')}}" class="nav-link">
-                  <p>Create API Keys</p>
+                  <p>@lang('messages.create-api-keys')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.api_keys.index')}}" class="nav-link">
-                  <p>Manage API Keys</p>
+                  <p>@lang('messages.manage-api-keys')</p>
                 </a>
               </li>
             </ul>
@@ -154,24 +154,24 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-flag"></i>
               <p>
-                Reports
+                @lang('messages.reports')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.activity.report')}}" class="nav-link">
-                  <p>User activity logs</p>
+                  <p>@lang('messages.user-activity-logs')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/forms/advanced.html" class="nav-link">
-                  <p>Content performance</p>
+                  <p>@lang('messages.content-performance')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('log-viewer')}}" class="nav-link">
-                  <p>System logs</p>
+                  <p>@lang('messages.system-logs')</p>
                 </a>
               </li>
             </ul>
@@ -181,14 +181,14 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-file" ></i>
               <p>
-                File Management
+                @lang('messages.file-management')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('files.index')}}" class="nav-link">
-                  <p>Manage Files</p>
+                  <p>@lang('messages.manage-file')</p>
                 </a>
               </li>
             </ul>
@@ -197,24 +197,24 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-bell" ></i>
               <p>
-                Notification
+                @lang('messages.notififcation')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{route('admin.notifications')}}" class="nav-link">
-                  <p>New User</p>
+                  <p>@lang('messages.new-user')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.criticalError')}}" class="nav-link">
-                  <p>Critical System Error</p>
+                  <p>@lang('messages.critical-systgem-error')</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admin.event.index')}}" class="nav-link">
-                  <p>Create Event Mail</p>
+                  <p>@lang('messages.create-event-mail')</p>
                 </a>
               </li>
             </ul>
@@ -224,14 +224,14 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-store" ></i>
               <p>
-                Backups
+                @lang('messages.backups')
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
-                  <p>Backups
+                  <p>@lang('messages.backups')
                   </p>
                 </a>
               </li>
@@ -242,7 +242,7 @@
               <form method="POST" action="{{ route('logout') }}" class="d-inline">
                 @csrf
                 
-                <button type="submit" class="nav-link"><i class="nav-icon fas fa-sign-out"></i>LogOut</button>
+                <button type="submit" class="nav-link"><i class="nav-icon fas fa-sign-out"></i>@lang('messages.logout')</button>
             </form>
             </a>
           </li>
